@@ -364,18 +364,13 @@ class ShopDB {
 		static function quoteParam($var) { return self::quote($_REQUEST[$var]); }
 
     static function escape_string($escapestr) {
-      // magic_quotes will be checked in the init.php procedure.
-//      if (!get_magic_quotes_gpc ()) {
-        if (!isset(ShopDB::$link)) {
-          self::init();
-        }
-        if (is_array($escapestr) || is_object($escapestr)) {
-          print_r($escapestr);
-        }
-        return ShopDB::$link->real_escape_string($escapestr);
-//      } else { //echo "get_magic_quotes_gpc<br>\n";
-//        die ("<b><font color='red'>fusion ticket can only work with magic_quotes_gpc turned off</font></b>");
-//      }
+	if (!isset(ShopDB::$link)) {
+		self::init();
+	}
+	if (is_array($escapestr) || is_object($escapestr)) {
+		print_r($escapestr);
+	}
+	return ShopDB::$link->real_escape_string($escapestr);
     }
 
     static function free_Result($result) {
