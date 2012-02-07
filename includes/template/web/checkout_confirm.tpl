@@ -1,0 +1,65 @@
+{*                  %%%copyright%%%
+ *
+ * FusionTicket - ticket reservation system
+ *  Copyright (C) 2007-2011 Christopher Jenkins, Niels, Lou. All rights reserved.
+ *
+ * Original Design:
+ *	phpMyTicket - ticket reservation system
+ * 	Copyright (C) 2004-2005 Anna Putrino, Stanislav Chachkov. All rights reserved.
+ *
+ * This file is part of FusionTicket.
+ *
+ * This file may be distributed and/or modified under the terms of the
+ * "GNU General Public License" version 3 as published by the Free
+ * Software Foundation and appearing in the file LICENSE included in
+ * the packaging of this file.
+ *
+ * This file is provided AS IS with NO WARRANTY OF ANY KIND, INCLUDING
+ * THE WARRANTY OF DESIGN, MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE.
+ *
+ * Any links or references to Fusion Ticket must be left in under our licensing agreement.
+ *
+ * By USING this file you are agreeing to the above terms of use. REMOVING this licence does NOT
+ * remove your obligation to the terms of use.
+ *
+ * The "GNU General Public License" (GPL) is available at
+ * http://www.gnu.org/copyleft/gpl.html.
+ *
+ * Contact help@fusionticket.com if any conditions of this licencing isn't
+ * clear to you.
+ *}
+ {if !$no_header}
+{include file="header.tpl" name=!order_reg! header=!tnx_order_mess!}
+{/if}
+
+  <table class='table_dark full' cellspacing='1' cellpadding='4' border=0 bgcolor='white' width='100%'>
+    {eval var=$shop_handling.handling_text_payment assign=paymentVal}
+    {gui->view name=payment value=$paymentVal}
+    {eval var=$shop_handling.handling_text_shipment assign=shipmentVal}
+    {gui->view name=shipment value=$shipmentVal}
+    {gui->view name=order_id value=$order_id}
+
+    {if $order_discount_price  neq 0.0 || $order_fee neq 0.0}
+      {gui->valuta value=$order_partial_price+$order_discount_price assign=orderPreDis}
+      {gui->view name=order_partial_price value=$orderPreDis}
+    {/if}
+
+    {if $order_fee neq 0.0}
+      {gui->valuta value=$order_fee assign=orderFee}
+      {gui->view name=order_fee value=$orderFee}
+    {/if}
+
+    {if $order_discount_price neq 0.0}
+      {gui->valuta value=$order_discount_price assign=orderDis}
+      {gui->view name=order_discount_price value=$orderDis}
+    {/if}
+
+    {gui->valuta value=$order_total_price assign=orderTot}
+    {gui->view name=total_price value=$orderTot}
+  </table>
+  {eval var=$confirmtext}
+
+{if !$no_footer}
+ {include file="footer.tpl"}
+{/if}

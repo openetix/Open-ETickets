@@ -1,0 +1,143 @@
+﻿<html>
+	<head>
+		<meta http-equiv="Content-Language" content="English" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>FusionTicket: Installation Guide </title>
+		<link rel="stylesheet" type="text/css" href="css/formatting.css" media="screen" />
+		<SCRIPT type=text/javascript>
+      if (window.showTocToggle) {
+        var tocShowText = "show";
+			  var tocHideText = "hide";
+			  showTocToggle();
+			}
+		</SCRIPT>
+  <style>
+    pre {font-size:1.21em;}
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="header">
+        <img src='images/logo.png' border="0" />
+        <h2>Installation or Upgrade Guide</h2>
+    </div>
+    <div id="navbar">
+      <ul>
+        <li><a name="Contents" href="#Requirements_">Requirements</a></li>
+        <li><a href="#Full_Installation">Full Installation</a></li>
+        <li><a href="#Upgrade_to_Beta5">Upgrade to Beta6</a></li>
+        <li><a href="#Problems_">Problems</a></li>
+      </ul>
+    </div>
+	<div id="right" style= "line-height:1.2em;"> <br><a name="Requirements_" ></a>
+        <h1> Requirements</h1>
+        <p>The server must have these programs/settings to run Fusion Ticket: </p>
+        <ul>
+            <li>PHP version =&gt;5.2.1 through 5.3.1, tested with 5.3.0.&nbsp; We do NOT support: PHP &lt;5.2.1 or &gt;5.3.1! </li>
+            <li>MySQL version &gt;<span lang="en-us">5.0</span> with MySQLi is Mandatory. Tested with version 5.1.35 </li>
+            <li>Enable email support in PHP - Check email security settings. </li>
+            <li>Adobe Acrobat Reader (to view/print PDF files) </li>
+            <li>cURL should be enabled for some features (PayPal, Authorize.net) </li>
+            <li>openssl should be enabled for some features i.e. https: </li>
+            <li>XML parser should be enabled</li>
+            <li>iconv support for non-latin text in PDF templates </li>
+        </ul>
+        <p>Some third party code is already included with the distribution: </p>
+        <ul>
+            <li>Smarty (see smarty.php.net) is installed in .../smarty folder </li>
+            <li>Html2Pdf in .../Html2pdf </li>
+            <li>HTMLMimeMail in .../classes</li>
+            <li>Fusion Ticket provides all required pear components in .../includes/pear folder. </li>
+        </ul>
+        <p>
+            Fusion Ticket has been tested on CentOS, Fedora Core, Ubuntu, and Windows with Apache 2.0. Generally,
+            the latest stable version of software will have no problems but there are no guarantees.
+        </p>
+        <p>
+            If there are any problems with the above requirements, or the web host, contact us
+            <a class="external free" rel="nofollow" href="mailto:hosting@fusionticket.com" >here</a>.
+        </p>
+        <p>
+            Fusion Ticket can provide hosting which is always up-to-date for security and compatibility. Use the
+            same version that we design the software on. All we ask is that you donate regularly to the project.
+        </p>
+        <div align="center">
+            <b style="color:red">We do not recommend the Beta Versions of Fusion Ticket for Production Use!</b>
+        </div>
+        <p align="right" width='100%'><a href="#Contents"><pre><b>[top]</b></pre></a></p>
+
+        <h1><a name="Full_Installation"></a>Full Installation</h1>
+        <ul>
+            <li>Download the archive Fusion Ticket and decompress it somewhere in the web root path of the web server: </li>
+            <li>This produces a directory called Fusionticket - you can rename it. </li>
+            <li>Create new database using the MySQL client, for example: mysqladmin create Fusionticket</li>
+            <li>Set the following folders and subfolders to writable </li>
+        </ul>
+        <pre><i>
+        .../includes/config/*
+        .../includes/fonts/*
+        .../includes/temp/*
+        .../files/*
+        </i></pre>
+        <ul>
+            <li>Browse to the installation script /yourhost/Fusionticket/inst/index.php and select ‘Full Installation’ </li>
+            <li>Reset the <i>.../includes/config</i> folder to Read-only. </li>
+        </ul>
+        <p align="right" width='100%'><a href="#Contents"><pre><b>[top]</b></pre></a></p>
+
+        <h1><a name="Upgrade_to_Beta5"></a>Upgrade to Beta6 </h1>
+        <ul>
+           <li><font color=red>Make a backup of your current database, it will not be backwards compatible.</font> </li>
+        </ul>
+        <ul>
+            <li>Download the archive Fusion Ticket Beta6 </li>
+            <li>Assuming the name of the Beta5 folder is /Fusionticket/ rename it to ../Fusionticket_B5/ (or whatever you like). </li>
+            <li>Create a new folder and give it the name of the original folder, in this case ../Fusionticket/</li>
+            <li>Copy the downloaded files to the new /Fusionticket/ folder. </li>
+            <li>Copy the the original /files folder to the new folder</li>
+            <li>Check the new <i>.tpl</i> files against any you may have previously modified. <br>
+                Copy the changed files to the custom folder.</li>
+         </ul>
+          <ul>
+           <li>Copy the original file init_config.php, now located in ../Fusionticket_B5/includes/config/ to the new folder. <br>
+                Remove the <i>$_SHOP->root</i> and <i>$_SHOP->root_secure</i> fields those are now automatically filled.</li>
+            <li>Starting with Beta6 it will expect you to use a secure (SSL) site for handling the checkout pages.<br> Enable this by add
+                <i>$_SHOP->secure_site= 1;</i> in init_config.php (contect your ISP for more information.)<br>
+                <b>People will see a warning when the checkout-page is not secure</b>.</li>
+        </ul>
+          <ul>
+            <li>Set the following folders and subfolders to writable <pre><i>.../includes/config/init_config.php
+.../includes/fonts/*
+.../includes/temp/*
+.../files/* </i></pre></li>
+             <li>Browse to the installation script ../yourhost/Fusionticket/inst/index.php and select ‘Upgrade’ </li>
+             <li>Reset the<i> .../includes/config</i> folder to Read-only. </li>
+         </ul>
+       <ul>
+            <li> Now you are ready to use beta6. </li>
+        </ul>
+        <p align="right" width='100%'><a href="#Contents"><pre><b>[top]</b></pre></a></p>
+        <h1><a name="Problems_"></a>Known Problems </h1>
+        You can now find the list of problems on our new wiki manual page
+          <a href='http://www.fusionticket.org/index.php?option=com_jfusion&Itemid=137&jfile=doku.php&id=knownproblems'>here</a>.
+
+
+        <p align="right" width='100%'><a href="#Contents"><pre><b>[top]</b></pre></a></p>
+        <p>&nbsp;</p> 
+        <p>You will find user manuals, forums, demos and other stuff on our web site:<br>
+        <br>
+        <a href='http://www.fusionticket.com>http://www.fusionticket.com</a><br>
+        <br>
+        Have Fun!<br>
+        Chris, Niels, Lou and Mike(Phoenix)<br><br><br>
+
+			<!-- end content -->
+    </div>
+
+    <div id='footer'>
+		Powered by <a href='http://fusionticket.org'>Fusion Ticket</a> - The Free Open Source Box Office
+	</div>
+</div>
+
+</body>
+</html>

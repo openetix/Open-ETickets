@@ -1,0 +1,32 @@
+# Various useful php configs for phpmyticket
+# To enable rename it to .htaccess
+# WARNING: some apache configs reject .htaccess files
+
+####
+## The Following config is outdated and should be placed in php.ini if needed.
+## Or contact your host about the below points.
+####
+# Security
+#php_flag register_globals off
+#php_flag magic_quotes_gpc off
+## misc
+#php_flag allow_call_time_pass_reference off
+## Recomended error reporting for production environment
+#php_flag display_errors off
+#php_flag log_errors on
+## Recommended error reporting for test environment
+#php_flag display_errors on
+#php_flag log_errors off
+
+#The following is required for Google Checkout on PHP:CGI Enviroments. (Apahce/mod_cgi) (IIS)
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
+</IfModule>
+
+#To be used for production enviroments improves page loading speed
+<IfModule mod_headers.c>
+  <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf)$">
+    Header set Expires "access plus 1 months"
+  </FilesMatch>
+</IfModule>

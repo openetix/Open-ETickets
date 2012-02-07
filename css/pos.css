@@ -1,0 +1,45 @@
+/*
+CSS Styles Provided Under the Fusionticket GPLv3 licence
+*/
+#header {
+	overflow: auto;
+}
+#header img {
+	cursor: pointer;
+	display: block;
+	margin: 5px;
+	text-align: left;
+	float: left;
+}
+
+#header h2 {
+	float: left;
+	clear: left;
+}
+
+#header ul {
+	clear: left;
+	margin: 5px auto;
+	display: block;
+	overflow: auto;
+	text-align: center;
+}
+
+#header ul li {
+	display: inline;
+	margin: 10px;
+	font-size: 1.4em;
+	overflow: auto;
+}
+#header ul li a:hover {
+	color: #4F07E2;
+}
+
+.ui-state-default {
+	padding: 5px;
+}
+.loading {
+	float:right;
+	overflow: auto;
+	
+}
