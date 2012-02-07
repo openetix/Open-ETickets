@@ -283,26 +283,26 @@ class User extends Model{
 	function resend_activation($email){
 		global $_SHOP;
 
-	    $query="SELECT auth.active, User.*
-        			FROM auth LEFT JOIN User ON auth.user_id=User.user_id
-        			WHERE auth.username="._esc($email);
-	    if (!$row=ShopDB::query_one_row($query)) {
-	  		addWarning("log_err_wrong_usr_activation_email");
+		$query="SELECT auth.active, User.*
+		  FROM auth LEFT JOIN User ON auth.user_id=User.user_id
+		  WHERE auth.username="._esc($email);
+		if (!$row=ShopDB::query_one_row($query)) {
+			addWarning("log_err_wrong_usr_activation_email");
 	  	} elseif ($row['active']==null) {
-	  		addWarning("log_err_isactive");
+			addWarning("log_err_isactive");
 	 	} else {
-   		$active = md5(uniqid(rand(), true));
-   		$query="UPDATE `auth` SET active='$active' WHERE username="._esc($row['user_email'])." LIMIT 1";
-       	unset($row['active']);
+			$active = md5(uniqid(rand(), true));
+			$query="UPDATE `auth` SET active='$active' WHERE username="._esc($row['user_email'])." LIMIT 1";
+			unset($row['active']);
 
-   		if(ShopDB::query($query) and ShopDB::affected_rows()==1){
-         	User::sendActivationCode($row, $active);
-          addNotice('act_email_sent');
-         	return true;
-   		} else {
-   		  addWarning("log_err_wrong_usr");
-      }
-   	}
+			if(ShopDB::query($query) and ShopDB::affected_rows()==1){
+				User::sendActivationCode($row, $active);
+				addNotice('act_email_sent');
+				return true;
+   			} else {
+				addWarning("log_err_wrong_usr");
+			}
+		}
 	}
 
   public function sendActivationCode($row, $active){
