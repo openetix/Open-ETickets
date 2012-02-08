@@ -112,7 +112,7 @@ if (!defined('ft_check')) {die('System intrusion ');}
   $_SHOP->trace_on   = 'ALL';
 
   // this selects the theme that you like to use.
-  $_SHOP->theme_name = "default";
+  $_SHOP->theme_name = "newdefault";
 	//default paper size and orientation for pdf files
 	//paper size: 'a4', 'legal', etc..or  array(x0,y0,x1,y1), in points
   //or  array(width,height), in centimeters
