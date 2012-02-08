@@ -5,26 +5,26 @@ Please feel free to update this document if you feel it to be inacurrate or inco
 
 1. CODE NAMING
  
-	There are a hundred differnt ways to name class names and varibles.
-	Everyone has there prefered methods, but for the sake of this project
-		we can agree that everyone should try and follow the rules below.
+	There are a hundred different ways to name class names and variables.
+	Everyone has their preferred methods, but for the sake of this project
+	we should agree that everyone should try and follow the rules below.
 		
-	1.1: ClassNames: Class names should have a CAPITOL for each letter 
-		of each word.
+	1.1: ClassNames: Class names should have a CAPITAL for each letter 
+	     of each word.
 		
-		No Spaces, No Special Chars and No Underscores
+		No spaces, no special chars and no underscores.
 	
-		:-D		-> 	Order, EmailController, SwiftEmailCompiler
-		:'-( 	-> 	order, emailController, Swift_Email_Compiler
+		Good	-> 	Order, EmailController, SwiftEmailCompiler
+		Bad 	-> 	order, emailController, Swift_Email_Compiler
 	
-	1.2: Function names: functions should use a cammelcaps style naming,
-		but should follow the simple rules.
+	1.2: Function names: functions should use a CamelCaps style naming,
+	     but should follow these rules.
 		
-		First word lower case, Every subsiquent word has uppercase first letter,
-		No Spaces, No special Chars and No underscores.
+		First word lower case, Every subsequent word has uppercase first letter,
+		No spaces, no special chars and no underscores.
 		
-		:-D		->	save(), deleteOrder(), isValid(), doThisFunctionNow()
-		:'-(	->	Save(), DeleteOrder(), is_Valid(), do_this_function_now()
+		Good	->	save(), deleteOrder(), isValid(), doThisFunctionNow()
+		Bad	->	Save(), DeleteOrder(), is_Valid(), do_this_function_now()
 		
 		There may be exceptions to these rules, such as: __construct.
 		Or _load() which would be the private version of load().
@@ -32,16 +32,14 @@ Please feel free to update this document if you feel it to be inacurrate or inco
 			static public load(){.. return self::_load()}
 			private _load()
 		
-	1.3 Varibles: 
-		Vars should follow the same rules as functions.
-		
-		See Functions...
+	1.3 Variables: 
+		Vars should follow the same rules as functions (See above).
 		
 		Exceptions:
 			When following table naming. So we can set $this->order_id 
-			as this would match the coloumn name of order_id in the order table.
+			as this would match the column name of order_id in the order table.
 			
-			Construct varibles used by a abstract class: 
+			Construct variables used by a abstract class: 
 				protected _columns = array(...)
 				protected _id = '..'
 	
@@ -56,7 +54,7 @@ Please feel free to update this document if you feel it to be inacurrate or inco
 		Classes : class.classname.php ie. class.session.php
 		Models 	: model.modelname.php ie. model.seat.php
 		Simple Files : filename.php ie. init.php
-		Compiliers : compilier.complib.comptype.php ie. compiler.swift.email.php
+		Compilers : compiler.complib.comptype.php ie. compiler.swift.email.php
 		Ajax 	: ajax.ajaxname.php ie. ajax.posajax.php
 		Etc..
 		
@@ -72,23 +70,23 @@ Please feel free to update this document if you feel it to be inacurrate or inco
 
 	3.1: Tables
 		Table names should be sensible at best. Every new table should be lowercase, this makes the system
-		 cross compatible between windows and unix but is allso recommended by InnoDB to reduce confusion
-		 between lower and uppercase tables.
+		cross compatible between Windows and Unix but is also recommended by InnoDB to reduce confusion
+		between lower and uppercase tables.
 		
-		Table names should only include letters and '_', they should also be plurised if holding an object style 
-		records like orders.
+		Table names should only include letters, numbers, and '_', and they should also be pluralised if
+		holding an object style records like orders.
 		
-		:-D		: orders, order_statuses, seats
-		:'-(	: order, OrderStatus, SEATS
+		Good	: orders, order_statuses, seats
+		Bad	: order, OrderStatus, SEATS
 		
 	3.2: Column Names
-		Should follow there table name affixed with their name. Again sensible names, if the table name is plurised
-		remove the plural. orders = order
+		Should follow there table name affixed with their name. Again sensible names, if the table name
+		is pluralised remove the plural. orders = order
 		
-		If the table name is long or contains '_' then using a abreavation is recommended
+		If the table name is long or contains '_' then using an abbreviation is recommended
 		
-		It is not required but hinting the type of field can be helpful.
+		It is not required but hinting at the type of field can be helpful.
 		
-		:-D		: order_id, order_timestamp, os_id (order_statuses) etc...
-		:'-( 	: id, ord_id, orderid, order_statuses_id
-		
+		Good	: order_id, order_timestamp, os_id (order_statuses) etc...
+		Bad 	: id, ord_id, orderid, order_statuses_id
+
