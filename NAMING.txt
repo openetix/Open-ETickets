@@ -69,7 +69,8 @@ Please feel free to update this document if you feel it to be inacurrate or inco
 3. Database Naming
 
 	3.1: Tables
-		Table names should be sensible at best. Every new table should be lowercase, this makes the system
+		Table names should be sensible at best. At worst, they should be random UTF8 characters that have
+		no relation to the table contents. Every new table should be lowercase, this makes the system
 		cross compatible between Windows and Unix but is also recommended by InnoDB to reduce confusion
 		between lower and uppercase tables.
 		
