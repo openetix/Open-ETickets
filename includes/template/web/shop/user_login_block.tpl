@@ -56,30 +56,28 @@
                                         <input type="hidden" name="uri" value="{$smarty.server.REQUEST_URI}">
                                       {/if}
                                       <p id="form-login-username">
-                                    		<label for=for="modlgn-username" class="login_content">{!email!}</label>
+                                   	<label for=for="modlgn-username" class="login_content">{!email!}</label>
                                         <input type='input' id="modlgn-username" name='username' size='20'> {printMsg key='loginusername'}
-                                    	</p>
-                                    	<pid="form-login-remember">
-                                    		<label for="modlgn-passwd"></label>{!password!}</label>
+                                      </p>
+                                      <p id="form-login-password">
+                                    	<label for="modlgn-passwd">{!password!}</label>
                                         <input id="modlgn-passwd" type='password' name='password' size='20'>{printMsg key='loginpassword'}
-
                                       </p>
                                       <span class="art-button-wrapper" >
                                         <span class="art-button-l"> </span>
                                         <span class="art-button-r"> </span>
-                                  			<input  class="art-button" type='submit' value='{!login_button!}' style='font-size:10px;'/>
+                                  	<input  class="art-button" type='submit' value='{!login_button!}' style='font-size:10px;'/>
                                       </span>
-                                    <ul>
-                                      <li><a  href='index.php?action=register'>{!register!}</a></li>
-                                  		<li><a onclick='showDialog(this);return false;' href='forgot_password.php'>{!forgot_pwd!}</a></li>
-                                  	</ul>
+                                      <ul>
+                                        <li><a  href='index.php?action=register'>{!register!}</a></li>
+                                        <li><a onclick='showDialog(this);return false;' href='forgot_password.php'>{!forgot_pwd!}</a></li>
+                                      </ul>
                                   </form>
-
                                 </div>
-                             		<div class="cleared"></div>
+                             	<div class="cleared"></div>
                               </div>
                             </div>
-                        		<div class="cleared"></div>
+                           <div class="cleared"></div>
                           </div>
                         </div>
 {/if}
