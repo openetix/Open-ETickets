@@ -222,7 +222,7 @@ var ajaxQManager = $.manageAjax.create('ajaxQMan',{
                         <div class="cleared"></div>
                           <div class="art-box art-vmenublock">
                             <div class="art-box-body art-vmenublock-body">
-                        <script type="text/javascript">
+                         {* <script type="text/javascript">
                           <!--
                           google_ad_client = "pub-7366313208188286";
                           /* 200x200, gemaakt 13-9-10 */
@@ -233,7 +233,7 @@ var ajaxQManager = $.manageAjax.create('ajaxQMan',{
                         </script>
                         <script type="text/javascript"
                           src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
-                        </script>
+                        </script>  *}
                       </div>
                       </div>
                       </div>
@@ -268,16 +268,16 @@ var ajaxQManager = $.manageAjax.create('ajaxQMan',{
                         <div class="art-box art-block">
                           <div class="art-box-body art-block-body">
 
-                        <script type="text/javascript">
+                        {* <script type="text/javascript">
                           <!--
                           google_ad_client = "pub-7366313208188286";
                           /* 120x600, gemaakt 13-9-10 */
                           google_ad_slot = "1716207720";
                           google_ad_width = 120;
                           google_ad_height = 600;
-                          //-->
+                          //-->  
                         </script>
-                        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>
+                        <script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script> *}
 
                         <div class="cleared"></div><div class="cleared"></div>
                       </div>
