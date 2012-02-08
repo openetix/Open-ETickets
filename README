@@ -1,4 +1,15 @@
-README for Fusion Ticket Version 1.3.5
+README for Open-ETickets 
+
+Open-ETickets is a fork of Fusion Ticket. Most of this code is taken from there. Due to
+disagreements over the intepretation of the GPL with the current lead dev, I have forked
+it and moved to GitHub.
+
+There is NO SUPPORT for this. If you wish to use a supported project, I strongly recommend
+you use the original.
+
+--Rob Thomas - 2012-02-08 - xrobau@gmail.com
+
+Original README below:
 
 Welcome to Fusion Ticket: online ticket reservation system for festivals, theaters 
 or just your party!
